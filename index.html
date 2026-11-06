@@ -3,13 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mi proyecto</title>
+  <title>Kiosco — Carrito</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Mi proyecto ya está en internet</h1>
-  <p id="mensaje">Todavía no apretaste el botón.</p>
-  <button id="boton">Apretame</button>
+  <main class="contenedor">
+    <h1>Kiosco</h1>
+    <p class="bajada">Elegí un producto, poné la cantidad y agregalo al carrito.</p>
+
+    <section class="tarjeta">
+      <h2>Agregar producto</h2>
+      <div class="campos">
+        <div class="campo">
+          <label for="producto">Producto</label>
+          <select id="producto"></select>
+        </div>
+        <div class="campo">
+          <label for="cantidad">Cantidad</label>
+          <input id="cantidad" type="number" min="1" step="1" inputmode="numeric" value="1">
+        </div>
+      </div>
+      <button id="agregar" type="button" class="boton-principal">Agregar</button>
+      <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Carrito</h2>
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio unitario</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="filas"></tbody>
+        </table>
+      </div>
+      <div class="total">
+        <span>Total a pagar</span>
+        <strong id="total">$ 0,00</strong>
+      </div>
+      <div class="acciones">
+        <button id="imprimir" type="button" class="boton-ticket">Imprimir ticket</button>
+        <button id="vaciar" type="button" class="boton-secundario">Vaciar carrito</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="ticket" class="ticket"></div>
+
   <script src="app.js"></script>
 </body>
 </html>

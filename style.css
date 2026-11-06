@@ -1,2 +1,309 @@
-body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; }
-button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #eef1f4;
+  color: #1c2430;
+  -webkit-text-size-adjust: 100%;
+}
+
+.contenedor {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+}
+
+.bajada {
+  margin: 0 0 20px;
+  color: #5b6472;
+}
+
+.tarjeta {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(28, 36, 48, 0.08);
+}
+
+.tarjeta h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.campos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #46505f;
+}
+
+select,
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #1c2430;
+  background: #ffffff;
+  border: 1px solid #cfd6df;
+  border-radius: 10px;
+}
+
+select:focus-visible,
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid #157a4a;
+  outline-offset: 2px;
+  border-color: #157a4a;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.boton-principal {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #157a4a;
+  border: none;
+  border-radius: 10px;
+}
+
+.boton-principal:hover {
+  background: #116b41;
+}
+
+.boton-principal:active {
+  transform: translateY(1px);
+}
+
+.aviso {
+  min-height: 1.2em;
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: #b3261e;
+}
+
+.aviso.ok {
+  color: #0f5c38;
+}
+
+.tabla-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  padding: 10px 8px;
+  text-align: right;
+  white-space: nowrap;
+  border-bottom: 1px solid #e6eaef;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+thead th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #5b6472;
+  background: #f7f9fb;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+td.num {
+  font-variant-numeric: tabular-nums;
+}
+
+.fila-vacia td {
+  padding: 24px 8px;
+  text-align: center;
+  white-space: normal;
+  color: #7a8494;
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 4px 4px;
+  font-weight: 600;
+}
+
+.total strong {
+  font-size: 1.4rem;
+  color: #0f5c38;
+  font-variant-numeric: tabular-nums;
+}
+
+.acciones {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.boton-secundario,
+.boton-ticket {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.boton-ticket {
+  color: #0f5c38;
+  background: #ffffff;
+  border: 1px solid #9fcdb5;
+}
+
+.boton-ticket:hover {
+  background: #f0f8f4;
+}
+
+.boton-secundario {
+  color: #b3261e;
+  background: #ffffff;
+  border: 1px solid #e3b4b0;
+}
+
+.boton-secundario:hover {
+  background: #fdf1f0;
+}
+
+@media (min-width: 520px) {
+  .acciones {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ticket {
+  display: none;
+}
+
+@page {
+  margin: 6mm;
+}
+
+@media print {
+  body {
+    margin: 0;
+    background: #ffffff;
+  }
+
+  .contenedor {
+    display: none !important;
+  }
+
+  .ticket {
+    display: block;
+    width: 72mm;
+    margin: 0 auto;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 11px;
+    line-height: 1.35;
+    color: #000000;
+  }
+
+  .ticket h2 {
+    margin: 0 0 1mm;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .ticket .fecha {
+    margin: 0 0 2mm;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .ticket hr {
+    margin: 2mm 0;
+    border: none;
+    border-top: 1px dashed #000000;
+  }
+
+  .ticket .linea {
+    display: flex;
+    justify-content: space-between;
+    gap: 4mm;
+  }
+
+  .ticket .linea .detalle {
+    flex: 1;
+  }
+
+  .ticket .total-linea {
+    margin-top: 1mm;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .ticket .gracias {
+    margin: 3mm 0 0;
+    text-align: center;
+  }
+}
+
+@media (min-width: 520px) {
+  .campos {
+    grid-template-columns: 1fr 150px;
+  }
+
+  .boton-principal {
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  th,
+  td {
+    padding: 9px 6px;
+    font-size: 0.85rem;
+  }
+
+  thead th {
+    font-size: 0.68rem;
+  }
+
+  .total strong {
+    font-size: 1.25rem;
+  }
+}
